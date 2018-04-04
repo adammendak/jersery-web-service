@@ -1,12 +1,13 @@
-package com.adammendak.jerseywebservice.rest.dto;
+package com.adammendak.jerseywebservice.rest.model.dto;
 
 import lombok.Data;
 
 import javax.xml.bind.annotation.XmlRootElement;
+import java.io.Serializable;
 
 @Data
 @XmlRootElement
-public class UserResponseDto {
+public class UserResponseDto implements Serializable {
 
     private String userId;
     private String firstname;

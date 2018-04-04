@@ -1,8 +1,11 @@
-package com.adammendak.jerseywebservice.ui.dto;
+package com.adammendak.jerseywebservice.rest.dto;
 
 import lombok.Data;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
 @Data
+@XmlRootElement
 public class UserResponseDto {
 
     private String userId;

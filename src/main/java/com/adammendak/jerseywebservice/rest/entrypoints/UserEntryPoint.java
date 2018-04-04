@@ -1,7 +1,7 @@
-package com.adammendak.jerseywebservice.ui.entrypoints;
+package com.adammendak.jerseywebservice.rest.entrypoints;
 
-import com.adammendak.jerseywebservice.ui.dto.UserDto;
-import com.adammendak.jerseywebservice.ui.dto.UserResponseDto;
+import com.adammendak.jerseywebservice.rest.dto.UserDto;
+import com.adammendak.jerseywebservice.rest.dto.UserResponseDto;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;

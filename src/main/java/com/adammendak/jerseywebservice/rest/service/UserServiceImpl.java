@@ -1,6 +1,7 @@
 package com.adammendak.jerseywebservice.rest.service;
 
-import com.adammendak.jerseywebservice.rest.exception.MissingRequiredFieldException;
+import com.adammendak.jerseywebservice.rest.exception.CustomErrorDTO;
+import com.adammendak.jerseywebservice.rest.exception.ErrorMessages;
 import com.adammendak.jerseywebservice.rest.model.User;
 import com.adammendak.jerseywebservice.rest.model.dto.UserRequestDto;
 
@@ -13,7 +14,7 @@ public class UserServiceImpl implements UserService{
 
         try {
             validateRequiredFields(requestDto);
-        } catch (MissingRequiredFieldException e) {
+        } catch (CustomErrorDTO e) {
 
         }
 
@@ -29,7 +30,7 @@ public class UserServiceImpl implements UserService{
 
     }
 
-    public void validateRequiredFields (UserRequestDto userRequestDto) throws MissingRequiredFieldException {
+    public void validateRequiredFields (UserRequestDto userRequestDto) throws CustomErrorDTO {
         if(userRequestDto.getFirstname() == null||
                 userRequestDto.getFirstname().isEmpty() ||
                 userRequestDto.getLastname() == null ||
@@ -39,7 +40,7 @@ public class UserServiceImpl implements UserService{
                 userRequestDto.getPassword() == null ||
                 userRequestDto.getPassword().isEmpty()
                 ) {
-            throw new MissingRequiredFieldException("missing required field");
+            throw new CustomErrorDTO(ErrorMessages.MISSING_REQUIRED_FIELD.getErrorMessage(), ErrorMessages.MISSING_REQUIRED_FIELD.getStatus());
         }
     }
 }

@@ -40,7 +40,8 @@ public class UserServiceImpl implements UserService{
                 userRequestDto.getPassword() == null ||
                 userRequestDto.getPassword().isEmpty()
                 ) {
-            throw new CustomErrorDTO(ErrorMessages.MISSING_REQUIRED_FIELD.getErrorMessage(), ErrorMessages.MISSING_REQUIRED_FIELD.getStatus());
+//            throw new CustomErrorDTO(ErrorMessages.MISSING_REQUIRED_FIELD.getErrorMessage(), ErrorMessages.MISSING_REQUIRED_FIELD.getStatus());
+            throw new CustomErrorDTO(ErrorMessages.ErrorMessagesFactory("MISSING_REQUIRED_FIELD"));
         }
     }
 }

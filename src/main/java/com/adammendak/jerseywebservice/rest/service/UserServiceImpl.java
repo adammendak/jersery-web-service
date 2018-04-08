@@ -1,9 +1,12 @@
 package com.adammendak.jerseywebservice.rest.service;
 
-import com.adammendak.jerseywebservice.rest.exception.CustomErrorDTO;
-import com.adammendak.jerseywebservice.rest.exception.ErrorMessages;
+import com.adammendak.jerseywebservice.rest.exception.CustomExceptionDTO;
+import com.adammendak.jerseywebservice.rest.exception.ExceptionMessages;
 import com.adammendak.jerseywebservice.rest.model.User;
 import com.adammendak.jerseywebservice.rest.model.dto.UserRequestDto;
+import org.springframework.beans.factory.annotation.Qualifier;
+
+import javax.annotation.ManagedBean;
 
 public class UserServiceImpl implements UserService{
 
@@ -14,7 +17,7 @@ public class UserServiceImpl implements UserService{
 
         try {
             validateRequiredFields(requestDto);
-        } catch (CustomErrorDTO e) {
+        } catch (CustomExceptionDTO e) {
 
         }
 
@@ -30,7 +33,7 @@ public class UserServiceImpl implements UserService{
 
     }
 
-    public void validateRequiredFields (UserRequestDto userRequestDto) throws CustomErrorDTO {
+    public void validateRequiredFields (UserRequestDto userRequestDto) throws CustomExceptionDTO {
         if(userRequestDto.getFirstname() == null||
                 userRequestDto.getFirstname().isEmpty() ||
                 userRequestDto.getLastname() == null ||
@@ -40,8 +43,8 @@ public class UserServiceImpl implements UserService{
                 userRequestDto.getPassword() == null ||
                 userRequestDto.getPassword().isEmpty()
                 ) {
-//            throw new CustomErrorDTO(ErrorMessages.MISSING_REQUIRED_FIELD.getErrorMessage(), ErrorMessages.MISSING_REQUIRED_FIELD.getStatus());
-            throw new CustomErrorDTO(ErrorMessages.ErrorMessagesFactory("MISSING_REQUIRED_FIELD"));
+//            throw new CustomExceptionDTO(ExceptionMessages.MISSING_REQUIRED_FIELD.getErrorMessage(), ExceptionMessages.MISSING_REQUIRED_FIELD.getStatus());
+            throw new CustomExceptionDTO(ExceptionMessages.ErrorMessagesFactory("MISSING_REQUIRED_FIELD"));
         }
     }
 }

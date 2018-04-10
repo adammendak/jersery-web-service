@@ -7,6 +7,7 @@ import com.adammendak.jerseywebservice.rest.model.dto.UserRequestDto;
 import com.adammendak.jerseywebservice.rest.model.dto.UserResponseDto;
 import com.adammendak.jerseywebservice.rest.service.UserService;
 import com.adammendak.jerseywebservice.rest.service.UserServiceImpl;
+import com.adammendak.jerseywebservice.rest.service.UserServiceQualifier;
 import jdk.nashorn.internal.runtime.regexp.joni.exception.ErrorMessages;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -20,8 +21,15 @@ import javax.ws.rs.core.MediaType;
 @Path("/user")
 public class UserEntryPoint {
 
+    @Inject
+    @UserServiceQualifier
+    private UserService userService;
+
 //    @Inject
-//    UserServiceImpl userService;
+//    @UserServiceQualifier
+//    public UserEntryPoint(UserServiceImpl userService) {
+//        this.userService = userService;
+//    }
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
@@ -29,7 +37,7 @@ public class UserEntryPoint {
     public UserResponseDto createUser(UserRequestDto request) throws CustomExceptionDTO{
 
         //create User from request
-        UserService userService = new UserServiceImpl();
+//        UserService userService = new UserServiceImpl();
         User newUser = userService.createUser(request);
 
         //create User Response

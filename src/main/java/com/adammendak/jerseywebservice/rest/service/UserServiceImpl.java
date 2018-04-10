@@ -7,7 +7,12 @@ import com.adammendak.jerseywebservice.rest.model.dto.UserRequestDto;
 import org.springframework.beans.factory.annotation.Qualifier;
 
 import javax.annotation.ManagedBean;
+import javax.ejb.Stateless;
+import javax.enterprise.inject.Default;
+import javax.inject.Named;
 
+
+@Stateless
 public class UserServiceImpl implements UserService{
 
     @Override

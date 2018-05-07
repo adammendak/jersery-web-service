@@ -5,6 +5,10 @@ import com.adammendak.jerseywebservice.rest.exception.ExceptionMessages;
 import com.adammendak.jerseywebservice.rest.model.User;
 import com.adammendak.jerseywebservice.rest.model.dto.UserRequestDto;
 
+import javax.ejb.Stateless;
+import javax.enterprise.context.ApplicationScoped;
+
+@Stateless
 public class UserServiceImpl implements UserService{
 
     @Override

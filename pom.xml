@@ -34,14 +34,6 @@
 
     <dependencies>
 
-        <!-- https://mvnrepository.com/artifact/javax/javaee-api -->
-        <!--<dependency>-->
-            <!--<groupId>javax</groupId>-->
-            <!--<artifactId>javaee-api</artifactId>-->
-            <!--<version>7.0</version>-->
-            <!--<scope>provided</scope>-->
-        <!--</dependency>-->
-
         <!-- https://mvnrepository.com/artifact/org.glassfish.jersey.bundles/jaxrs-ri -->
         <dependency>
             <groupId>org.glassfish.jersey.bundles</groupId>
@@ -65,7 +57,7 @@
             <version>5.2.8.Final</version>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-validator -->
+         <!--https://mvnrepository.com/artifact/org.hibernate/hibernate-validator-->
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-validator</artifactId>
@@ -81,11 +73,11 @@
         </dependency>
 
          <!--https://mvnrepository.com/artifact/org.springframework/spring-beans-->
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-beans</artifactId>
-            <version>4.3.7.RELEASE</version>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>org.springframework</groupId>-->
+            <!--<artifactId>spring-beans</artifactId>-->
+            <!--<version>4.3.7.RELEASE</version>-->
+        <!--</dependency>-->
 
         <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
         <dependency>
@@ -93,6 +85,11 @@
             <artifactId>lombok</artifactId>
             <version>1.16.20</version>
             <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-api</artifactId>
+            <version>7.0</version>
         </dependency>
 
     </dependencies>

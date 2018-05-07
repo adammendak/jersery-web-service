@@ -8,19 +8,19 @@ import com.adammendak.jerseywebservice.rest.model.dto.UserResponseDto;
 import com.adammendak.jerseywebservice.rest.service.UserService;
 import com.adammendak.jerseywebservice.rest.service.UserServiceImpl;
 
+import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 
 @Path("/user")
 public class UserEntryPoint {
 
-//    @Inject
-//    private UserServiceImpl userService;
+    private UserServiceImpl userService;
 
-//    @Inject
-//    public UserEntryPoint(UserServiceImpl userService) {
-//        this.userService = new UserServiceImpl();
-//    }
+    @Inject
+    public UserEntryPoint(UserService userService) {
+        this.userService = new UserServiceImpl();
+    }
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
@@ -33,13 +33,14 @@ public class UserEntryPoint {
 
         //create User Response
         UserResponseDto userResponseDto = new UserResponseDto();
+        userResponseDto.setEmail("asdfasdf");
 
 //        BeanUtils.copyProperties(newUser, userResponseDto);
 
 //        throw new CustomExceptionDTO(ExceptionMessages.ErrorMessagesFactory("MISSING_REQUIRED_FIELD"));
-        throw new CustomExceptionDTO(ExceptionMessages.ErrorMessagesFactory("GENERIC_EXCEPTION"));
+//        throw new CustomExceptionDTO(ExceptionMessages.ErrorMessagesFactory("GENERIC_EXCEPTION"));
 
-//        return userResponseDto;
+        return userResponseDto;
 
     }
 

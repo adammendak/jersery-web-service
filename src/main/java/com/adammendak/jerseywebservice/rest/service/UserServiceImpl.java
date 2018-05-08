@@ -10,8 +10,7 @@ import javax.ejb.Stateless;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Qualifier;
 
-@UserServiceAnno
-@ApplicationScoped
+@Stateless
 //public class UserServiceImpl implements UserService{
 public class UserServiceImpl {
 

@@ -5,13 +5,20 @@ import com.adammendak.jerseywebservice.rest.exception.ExceptionMessages;
 import com.adammendak.jerseywebservice.rest.model.User;
 import com.adammendak.jerseywebservice.rest.model.dto.UserRequestDto;
 
+import javax.annotation.PostConstruct;
 import javax.ejb.Stateless;
 import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Qualifier;
 
-@Stateless
-public class UserServiceImpl implements UserService{
+@UserServiceAnno
+@ApplicationScoped
+//public class UserServiceImpl implements UserService{
+public class UserServiceImpl {
 
-    @Override
+    public UserServiceImpl() {
+    }
+
+//    @Override
     public User createUser(UserRequestDto requestDto) {
 
         User newUser = new User();

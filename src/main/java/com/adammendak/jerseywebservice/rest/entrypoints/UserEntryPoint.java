@@ -1,13 +1,16 @@
 package com.adammendak.jerseywebservice.rest.entrypoints;
 
 import com.adammendak.jerseywebservice.rest.exception.CustomExceptionDTO;
-import com.adammendak.jerseywebservice.rest.exception.ExceptionMessages;
 import com.adammendak.jerseywebservice.rest.model.User;
 import com.adammendak.jerseywebservice.rest.model.dto.UserRequestDto;
 import com.adammendak.jerseywebservice.rest.model.dto.UserResponseDto;
+import com.adammendak.jerseywebservice.rest.service.TestService;
 import com.adammendak.jerseywebservice.rest.service.UserService;
+import com.adammendak.jerseywebservice.rest.service.UserServiceAnno;
 import com.adammendak.jerseywebservice.rest.service.UserServiceImpl;
 
+import javax.ejb.Stateless;
+import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -15,32 +18,37 @@ import javax.ws.rs.core.MediaType;
 @Path("/user")
 public class UserEntryPoint {
 
-    private UserServiceImpl userService;
+//    @Default
+//    @Inject
+//    @UserServiceAnno
+//    private UserServiceImpl userService;
+
+//    @Inject
+//    public UserEntryPoint(UserServiceImpl userService) {
+//        this.userService = new UserServiceImpl();
+//    }
 
     @Inject
-    public UserEntryPoint(UserService userService) {
-        this.userService = new UserServiceImpl();
-    }
+    private TestService testService;
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public UserResponseDto createUser(UserRequestDto request) throws CustomExceptionDTO{
+    public String createUser(UserRequestDto request) throws CustomExceptionDTO{
 
         //create User from request
-        UserService userService = new UserServiceImpl();
-        User newUser = userService.createUser(request);
-
-        //create User Response
-        UserResponseDto userResponseDto = new UserResponseDto();
-        userResponseDto.setEmail("asdfasdf");
+//        UserServiceImpl userService = new UserServiceImpl();
+//
+//        User newUser = userService.createUser(request);
+//        UserResponseDto userResponseDto = new UserResponseDto();
+//        userResponseDto.setEmail("asdfasdf");
 
 //        BeanUtils.copyProperties(newUser, userResponseDto);
 
 //        throw new CustomExceptionDTO(ExceptionMessages.ErrorMessagesFactory("MISSING_REQUIRED_FIELD"));
 //        throw new CustomExceptionDTO(ExceptionMessages.ErrorMessagesFactory("GENERIC_EXCEPTION"));
 
-        return userResponseDto;
+        return "Hello World";
 
     }
 
